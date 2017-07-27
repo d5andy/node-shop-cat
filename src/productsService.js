@@ -29,9 +29,13 @@ module.exports = class ProductsService {
       return this.productsRepo.insert(stage, sku, JSON.stringify(product))
     })).catch(console.log)
   }
-  promoteLatestChangesFrom(fromEnv, toEnv) {
+  changesToPromote(fromEnv, toEnv) {
     return this.productsRepo.diff(fromEnv, toEnv)
-      .then(rows => this.productsRepo.promote(rows, toEnv))
+      .then(changes => {return JSON.parse(changes.thejson)})
+      .catch(console.log);
+  }
+  promoteChanges(rows, toEnv) {
+    return this.productsRepo.promote(rows, toEnv)
       .then(rows => {
         console.log(`Updated ${rows.length} ${rows.map(row => row.sku)}`);
         return Promise.resolve(rows);

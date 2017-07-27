@@ -25,16 +25,20 @@ if (argv.s) {
   let productsService = new ProductsService(db.db);
   productsService.slurpSpreadsheet(stage)
     .then(products => sendUpdatesForProductsToShops(db.db, stage, products))
-    // .then(products => productsService.insert(stage, products))
-    // .then(console.log)
+    .then(products => productsService.insert(stage, products))
     .catch(console.log)
     .then(db.pgp.end);
 }
 
 if (argv.p) {
   let envs = argv.p.split(',')
-  console.log(`promote ${envs[0]} to ${envs[1]}`);
-  new ProductsService(db.db).promoteLatestChangesFrom(envs[0], envs[1])
+  let fromStage = envs[0]
+  let toStage = envs[1]
+  console.log(`promote ${fromStage} to ${toStage}`);
+  let productsService = new ProductsService(db.db)
+  productsService.changesToPromote(fromStage, envs[1])
+    .then(products => sendUpdatesForProductsToShops(db.db, toStage, products))
+    .then(rows => productsService.promoteChanges(rows, toStage))
     .catch(console.log)
     .then(db.pgp.end);
 }

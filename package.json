@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jasmine",
     "slurp": "node src/index -s",
-    "schema": "node src/table.js",
+    "schema": "node src/table ",
     "promote": "node src/index -p",
     "loadshop": "node src/index.js -l",
     "query": "node src/index.js --ccy=USD --stage=qa -q=9781781107348"
