@@ -1,9 +1,9 @@
 "use strict";
 const ENV_DIFF = `
-(select max(version) as version, sku from product p where $1 = ANY(env) group by sku)
-EXCEPT
-(select max(p1.version), p1.sku from product p1 where $2 = ANY(p1.env) group by p1.sku);
-`;
+    (select max(version) as version, sku from product p where $1 = ANY(env) group by sku)
+    EXCEPT
+    (select max(p1.version), p1.sku from product p1 where $2 = ANY(p1.env) group by p1.sku);
+    `;
 const INSERT_INTO_PRODUCT = `
       INSERT INTO PRODUCT(sku, thejson, version, env) VALUES($1, $2, $3, ARRAY[$4])
       RETURNING *;
@@ -22,7 +22,6 @@ const SELECT_BY_SKU = `
       WHERE
         p1.sku = p2.sku AND p1.version = p2.version AND $2 = ANY(p1.env);
     `;
-
 
 module.exports = class ProductsRepository {
   constructor(db) {

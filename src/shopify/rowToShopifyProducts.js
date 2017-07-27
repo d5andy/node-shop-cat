@@ -1,12 +1,12 @@
 "use strict";
 const removeDiacritics = require('diacritics').remove,
-      buildMetafields = require('./metafields').buildMetafields,
+      buildMetafields = require('./rowToMetafields').buildMetafields,
       SKU = 'Variant SKU',
       VARIANT_REQUIRES_SHIPPING = 'Variant Requires Shipping';
 
 module.exports = function convertToProduct(row, ccy, baseUrl) {
   let rowHandle = row['handle'];
-  return {
+  let product = {
     handle: removeDiacritics(rowHandle),
     title: row['Title'],
     body_html: row['Body (HTML)'],
@@ -20,6 +20,7 @@ module.exports = function convertToProduct(row, ccy, baseUrl) {
     images: buildImages(row, baseUrl),
     metafields: buildMetafields(row)
   }
+  return populatePublished(product, ccy, row)
 }
 
 function buildVariants(row, ccy) {
@@ -61,4 +62,20 @@ function isPhysicalProduct(row) {
   } else {
     return false
   }
+}
+
+function populatePublished(product, ccy, row) {
+  let publishedColumnValue = row['Publish ' + ccy]
+  let isBoolean = publishedColumnValue.toUpperCase().trim() in ['', 'TRUE', 'FALSE', '0', '1']
+  let date = !isBoolean ? Date.parse(publishedColumnValue) : null
+  let now = Date.now()
+  if ((date && date < now) || (publishedColumnValue == '1' || publishedColumnValue.toLowerCase() == 'true')) {
+    product.published = true
+  } else if (date > now) {
+    product.published = false
+    product.publish_on = date
+  } else {
+    product.published = false
+  }
+  return product
 }

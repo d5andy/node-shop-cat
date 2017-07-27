@@ -6,11 +6,11 @@ async function findChangesInSpreadsheet(productsRepo, stage) {
   var rows = await sheet.rowsAsJson()
   var changes = []
   for (let row of rows) {
-      let sku = row['Variant SKU'];
-      let existingProduct = await productsRepo.get(sku, stage)
-      if (!existingProduct || existingProduct.thejson !== JSON.stringify(row)) {
-          changes = changes.concat(row)
-      }
+    let sku = row['Variant SKU'];
+    let existingProduct = await productsRepo.get(sku, stage)
+    if (!existingProduct || existingProduct.thejson !== JSON.stringify(row)) {
+      changes = changes.concat(row)
+    }
   }
   return changes
 }
@@ -24,7 +24,7 @@ module.exports = class ProductsService {
   }
   insert(stage, products) {
     // console.log(products);
-      return Promise.all(products.map(product => {
+    return Promise.all(products.map(product => {
       let sku = product['Variant SKU'];
       return this.productsRepo.insert(stage, sku, JSON.stringify(product))
     })).catch(console.log)
