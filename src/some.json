@@ -1,0 +1,75 @@
+[{
+  "product": {
+    "id": 9716073924,
+    "title": "Animales fantásticos y dónde encontrarlos: guión original de la película",
+    "body_html": "<p>El magizoólogo Newt Scamander llega a Nueva York para hacer una breve escala. Pero pierde su maletín mágico y algunas de sus criaturas logran escapar, causando muchos problemas para todos… </p><p>Inspirada en el libro de texto de Hogwarts escrito por Newt Scamander, <em>Animales fantásticos y dónde encontrarlos: el guión original de la película</em> marca el debut como guionista de J. K. Rowling, autora de la serie de libros sobre Harry Potter de gran éxito en todo el mundo. Con imaginación desbordante y un elenco de personajes y animales mágicos inolvidables, este guión épico, repleto de aventuras, es un ejemplo impecable del arte de narrar historias. Será la perfecta nueva incorporación al anaquel de todo amante del cine o la lectura, ya sea fan de la serie o nuevo en el mundo de los magos. </p><p><em>Animales fantásticos y dónde encontrarlos  </em>se estrenó en los cines el 18 de noviembre de 2016.</p>",
+    "vendor": "Publicaciones Y Ediciones Salamandra",
+    "product_type": "eBook",
+    "created_at": "2017-01-11T12:09:40+00:00",
+    "handle": "fantastic-beasts-screenplay-ebook-spanish",
+    "updated_at": "2017-07-20T11:52:04+01:00",
+    "published_at": "2016-12-29T05:00:00+00:00",
+    "template_suffix": "",
+    "published_scope": "global",
+    "tags": "Spanish",
+    "variants": [{
+      "id": 33509835140,
+      "product_id": 9716073924,
+      "title": "Default Title",
+      "price": "12.99",
+      "sku": "9781781107355",
+      "position": 1,
+      "grams": 0,
+      "inventory_policy": "deny",
+      "compare_at_price": null,
+      "fulfillment_service": "manual",
+      "inventory_management": null,
+      "option1": "Default Title",
+      "option2": null,
+      "option3": null,
+      "created_at": "2017-01-11T12:09:40+00:00",
+      "updated_at": "2017-06-29T12:02:17+01:00",
+      "taxable": true,
+      "barcode": "978-1-78110-735-5",
+      "image_id": null,
+      "inventory_quantity": 0,
+      "weight": 0,
+      "weight_unit": "kg",
+      "old_inventory_quantity": 0,
+      "requires_shipping": false
+    }],
+    "options": [{
+      "id": 11643514820,
+      "product_id": 9716073924,
+      "name": "Title",
+      "position": 1,
+      "values": ["Default Title"]
+    }],
+    "images": [{
+      "id": 27606056132,
+      "product_id": 9716073924,
+      "position": 1,
+      "created_at": "2017-07-20T11:52:04+01:00",
+      "updated_at": "2017-07-20T11:52:04+01:00",
+      "width": 1200,
+      "height": 1803,
+      "src": "https://cdn.shopify.com/s/files/1/1027/1097/products/9781781107355.jpg?v=1500547924",
+      "variant_ids": []
+    }],
+    "image": {
+      "id": 27606056132,
+      "product_id": 9716073924,
+      "position": 1,
+      "created_at": "2017-07-20T11:52:04+01:00",
+      "updated_at": "2017-07-20T11:52:04+01:00",
+      "width": 1200,
+      "height": 1803,
+      "src": "https://cdn.shopify.com/s/files/1/1027/1097/products/9781781107355.jpg?v=1500547924",
+      "variant_ids": []
+    }
+  },
+  "metafields": {
+    "isFulfilled": false,
+    "isRejected": false
+  }
+}]
